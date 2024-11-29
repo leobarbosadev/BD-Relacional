@@ -2,7 +2,7 @@ import os
 import sqlite3
 from prettytable import PrettyTable
 
-con = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python\meu_banco.db')
+con = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/aula001_crud_conexao_bd\meu_banco.db')
 
 cursor = con.cursor()
 

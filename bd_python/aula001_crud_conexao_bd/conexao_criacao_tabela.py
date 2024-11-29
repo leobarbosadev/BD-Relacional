@@ -1,7 +1,7 @@
 import sqlite3
 
 # conn: é a variável para conexão com o banco de dados
-conn = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python\meu_banco.db')
+conn = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/aula001_crud_conexao_bd\meu_banco.db')
 
 # Para operações no banco de dados, você também precisará de um cursor,
 # que é um objeto que permite executar comandos SQL.
