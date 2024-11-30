@@ -11,7 +11,10 @@
 
 # import sqlite3
 import os
+from codigos_sql.criar_tabelas_e_banco import criar_banco
+from codigos_sql.inserindo_dados import inserir_dados_cliente, inserir_dados_destino, inserir_dados_empresa_aerea
 
+# criar_banco()
 
 while True:
     os.system('cls')
@@ -25,7 +28,28 @@ while True:
         print('Finalizado')
         break
     elif menu == '1':
-        input('Adicionado')
+        while True:
+            print()
+            print('O que deseja adicionar?')
+            submenu = input('1 - Cliente\n'
+                            +f'2 - Destino\n'
+                            +f'3 - Empresa aérea\n'
+                            +f'6 - Voltar\n\n').strip()
+            if submenu == '6':
+                break
+            elif submenu == '1':
+                inserir_dados_cliente()
+                input('Dados inseridos com sucesso')
+                os.system('cls')
+            elif submenu == '2':
+                inserir_dados_destino()
+                input('Dados inseridos com sucesso')
+                os.system('cls')
+            elif submenu == '3':
+                print()
+                inserir_dados_empresa_aerea()
+                input('Dados inseridos com sucesso')
+                os.system('cls')
     elif menu == '2':
         input('Atualizado')
     elif menu == '3':
