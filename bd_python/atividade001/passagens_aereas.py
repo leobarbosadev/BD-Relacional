@@ -9,6 +9,6 @@
 # adicionar novos registros de passagens, visualizar a lista de passagens cadastradas, 
 # atualizar informações(por exemplo, ajustar horários ou destinos) e, quando necessário, excluir registros de passagens.
 
-# from bd_python.atividade001.menus import menu_principal
+from bd_python.atividade001.menus import menu_principal
 
-# menu_principal()
+menu_principal()
