@@ -94,7 +94,7 @@ def inserir_dados_escala():
         # Criando conexão com o banco
         conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        # Cursor permite que eu utilize comandos SQL
+
         cursor = conec.cursor()
 
 
