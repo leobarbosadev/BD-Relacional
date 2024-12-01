@@ -16,10 +16,9 @@ def menu_principal():
             input('Obrigado por utilizar nosso sistema!')
             break
         elif menu == '1':
-            submenu()
+            submenu_inserir()
         
-def submenu():
-    while True:
+def submenu_inserir():
             print()
             print('O que deseja adicionar?')
             submenu = input('1 - Cliente\n'
@@ -30,7 +29,7 @@ def submenu():
                             +f'6 - Quantidade de escalas\n'
                             +f'7 - Voltar\n\n').strip()
             if submenu == '7':
-                break
+                menu_principal()
             elif submenu == '1':
                 inserir_dados_cliente()
                 input('Dados do cliente inseridos com sucesso')
@@ -59,4 +58,9 @@ def submenu():
                 inserir_dados_escala()
                 input('Dados de escala inseridos com sucesso')
                 os.system('cls')
-    
+            else:
+                input('Opção invalida')
+                os.system('cls')
+                submenu_inserir()
+
+
