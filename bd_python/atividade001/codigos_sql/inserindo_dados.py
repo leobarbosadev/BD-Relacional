@@ -1,10 +1,13 @@
 import os
 import sqlite3
 
+
 def inserir_dados_cliente():
-    
+        
+        #criar_banco()
+        
         # Criando conexão com o banco
-        conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+        conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
         # Cursor permite que eu utilize comandos SQL
         cursor = conec.cursor()

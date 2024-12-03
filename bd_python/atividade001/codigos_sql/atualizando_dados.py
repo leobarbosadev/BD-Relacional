@@ -1,18 +1,21 @@
 import os
 import sqlite3
+from codigos_sql.exibindo_dados import exibir_dados_cliente
 
 def atualizar_dados_cliente():
     
-    conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
 
     cursor = conec.cursor()
     
-    os.system('cls')
-    nome_cliente = input('Digite o nome do cliente que deseja atualizar: ')
+    exibir_dados_cliente()
+    print()
+    id = input('Digite o id do cliente que deseja atualizar: ')
     novo_nome = input('Digite o novo nome: ')
-    nova_idade = input('Digite a nova idade: ')
+    nova_idade = int(input('Digite a nova idade: '))
     
-    cursor.execute('UPDATE cliente SET nome = ?, idade = ? WHERE nome = ?', (novo_nome, nova_idade, nome_cliente))
+    if novo_nome:
+        cursor.execute('UPDATE cliente SET nome = ?, idade = ? WHERE id=?', (novo_nome, nova_idade, id))
     
     conec.commit()
     
@@ -29,7 +32,7 @@ def atualizar_dados_destino():
     novo_destino = input('Digite o novo destino: ')
     novo_pais = input('Digite o novo país: ')
     
-    cursor.execute('UPDATE destino SET nome_destino = ?, pais = ?'(novo_destino, novo_pais, nome_destino))
+    cursor.execute('UPDATE destino SET nome_destino = ?, pais = ?',(novo_destino, novo_pais, nome_destino))
     
     conec.commit()
     
