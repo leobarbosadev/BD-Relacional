@@ -91,7 +91,7 @@ def submenu_alterar():
     elif submenu == '1':
         print()
         atualizar_dados_cliente()
-        input('Dados do cliente atualizados com sucesso')
+        # input('Dados do cliente atualizados com sucesso')
         os.system('cls')
     elif submenu == '2':
         print()
