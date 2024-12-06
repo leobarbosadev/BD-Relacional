@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from codigos_sql.exibindo_dados import exibir_dados_cliente
+from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino
 
 def atualizar_dados_cliente():
     
@@ -10,6 +10,7 @@ def atualizar_dados_cliente():
     
     exibir_dados_cliente()
     print()
+    
     id_cliente = input('Digite o id do cliente que deseja atualizar: ')
     
     cursor.execute('SELECT * FROM cliente WHERE id = ?',(id_cliente,))
@@ -33,19 +34,32 @@ def atualizar_dados_cliente():
     
 def atualizar_dados_destino():
     
-    conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
 
     cursor = conec.cursor()
     
-    os.system('cls')
-    nome_destino = input('Digite o nome do destino que deseja atualizar: ')
-    novo_destino = input('Digite o novo destino: ')
-    novo_pais = input('Digite o novo país: ')
+    exibir_dados_destino()
+    print()
     
-    cursor.execute('UPDATE destino SET nome_destino = ?, pais = ?',(novo_destino, novo_pais, nome_destino))
+    id_cliente = input('Digite o id do cliente que deseja atualizar: ')
     
-    conec.commit()
+    cursor.execute('SELECT * FROM destino WHERE id = ?',(id_cliente,))
+    resultado = cursor.fetchone()
     
+    if not resultado:
+        input("Cliente não encontrado!")
+    else:
+        print(f'\nNome atual: {resultado[1]}')
+        print(f'Idade atual: {resultado[2]}')
+
+        novo_nome = input(f'Novo nome ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        nova_idade = input(f'Nova idade ou Enter para manter "{resultado[2]}": ') or resultado[2]
+        cursor.execute('UPDATE cliente SET nome = ?, idade = ? WHERE id= ?', (novo_nome, nova_idade, id_cliente))
+
+        conec.commit()
+        
+        input('Dados do cliente inseridos com sucesso')
+        
     conec.close()
     
 def atualizar_empresa_aerea():

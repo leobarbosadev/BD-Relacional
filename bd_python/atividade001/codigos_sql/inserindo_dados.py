@@ -3,108 +3,143 @@ import sqlite3
 
 
 def inserir_dados_cliente():
-        
-        #criar_banco()
-        
-        # Criando conexão com o banco
-        conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        # Cursor permite que eu utilize comandos SQL
-        cursor = conec.cursor()
+    # criar_banco()
 
-        os.system('cls')
-        nome = input('Digite um nome: ')
-        idade = int(input('Digite a idade: '))
+    # Criando conexão com o banco
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        cursor.execute('INSERT INTO cliente (nome, idade) VALUES (?, ?)', (nome, idade))
+    # Cursor permite que eu utilize comandos SQL
+    cursor = conec.cursor()
 
-        conec.commit()
-        
-        conec.close()
-        
+    os.system('cls')
+    nome = input('Digite um nome: ')
+    idade = int(input('Digite a idade: '))
+
+    cursor.execute(
+        'INSERT INTO cliente (nome, idade) VALUES (?, ?)', (nome, idade))
+
+    conec.commit()
+
+    conec.close()
+
+
 def inserir_dados_destino():
-        
-        # Criando conexão com o banco
-        conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        # Cursor permite que eu utilize comandos SQL
-        cursor = conec.cursor()
+    # Criando conexão com o banco
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        os.system('cls')
-        nome_destino = input('Digite o destino: ')
-        pais = input('Digite o país: ')
+    # Cursor permite que eu utilize comandos SQL
+    cursor = conec.cursor()
 
-        cursor.execute('INSERT INTO destino (nome_destino, pais) VALUES (?, ?)', (nome_destino, pais))
+    os.system('cls')
+    nome_destino = input('Digite o destino: ')
+    pais = input('Digite o país: ')
 
-        conec.commit()
-        
-        conec.close()
+    cursor.execute(
+        'INSERT INTO destino (nome_destino, pais) VALUES (?, ?)', (nome_destino, pais))
+
+    conec.commit()
+
+    conec.close()
+
 
 def inserir_dados_empresa_aerea():
-        
-        # Criando conexão com o banco
-        conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        # Cursor permite que eu utilize comandos SQL
-        cursor = conec.cursor()
+    # Criando conexão com o banco
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        os.system('cls')
-        nome_empresa = input('Digite o nome da empresa aérea: ')
+    # Cursor permite que eu utilize comandos SQL
+    cursor = conec.cursor()
 
-        cursor.execute('INSERT INTO empresa_aerea (nome_empresa_aerea) VALUES (?)', (nome_empresa,))
+    os.system('cls')
+    nome_empresa = input('Digite o nome da empresa aérea: ')
 
-        conec.commit()
-        
-        conec.close()
-        
+    cursor.execute(
+        'INSERT INTO empresa_aerea (nome_empresa_aerea) VALUES (?)', (nome_empresa,))
+
+    conec.commit()
+
+    conec.close()
+
+
 def inserir_dados_portao_embarque():
-        
-        
-        # Criando conexão com o banco
-        conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        # Cursor permite que eu utilize comandos SQL
-        cursor = conec.cursor()
+    # Criando conexão com o banco
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        os.system('cls')
-        nome_portao_embarque = input('Digite o portão de embarque: ')
+    # Cursor permite que eu utilize comandos SQL
+    cursor = conec.cursor()
 
-        cursor.execute('INSERT INTO portao_embarque (nome_portao_embarque) VALUES (?)', (nome_portao_embarque,))
+    os.system('cls')
+    nome_portao_embarque = input('Digite o portão de embarque: ')
 
-        conec.commit()
-        
-        conec.close()
-        
+    cursor.execute(
+        'INSERT INTO portao_embarque (nome_portao_embarque) VALUES (?)', (nome_portao_embarque,))
+
+    conec.commit()
+
+    conec.close()
+
+
 def inserir_dados_tipo_viagem():
-        
-        # Criando conexão com o banco
-        conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        # Cursor permite que eu utilize comandos SQL
-        cursor = conec.cursor()
+    # Criando conexão com o banco
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        os.system('cls')
-        tipo_viagem = input('Digite o tipo de viagem: ')
+    # Cursor permite que eu utilize comandos SQL
+    cursor = conec.cursor()
 
-        cursor.execute('INSERT INTO tipo_viagem (tipo_viagem) VALUES (?)', (tipo_viagem,))
+    os.system('cls')
+    tipo_viagem = input('Digite o tipo de viagem: ')
 
-        conec.commit()
-        
-        conec.close()
-        
+    cursor.execute(
+        'INSERT INTO tipo_viagem (tipo_viagem) VALUES (?)', (tipo_viagem,))
+
+    conec.commit()
+
+    conec.close()
+
+
 def inserir_dados_escala():
-        
-        # Criando conexão com o banco
-        conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+
+    # Criando conexão com o banco
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+
+    cursor = conec.cursor()
+
+    os.system('cls')
+    qtd_escala = input('Digite a quantidade de escalas ou se o voo é direto: ')
+
+    cursor.execute(
+        'INSERT INTO escala (quantidade_escala) VALUES (?)', (qtd_escala,))
+
+    conec.commit()
+
+    conec.close()
 
 
-        cursor = conec.cursor()
+def inserir_dados_passagem():
 
-        os.system('cls')
-        qtd_escala = input('Digite a quantidade de escalas ou se o voo é direto: ')
+    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
 
-        cursor.execute('INSERT INTO escala (quantidade_escala) VALUES (?)', (qtd_escala,))
+    cursor = conec.cursor()
 
-        conec.commit()
-        
-        conec.close()
+    os.system('cls')
+    numero_voo = input('Digite o número do voo: ')
+    id_origem = input('Digite o id de origem: ')
+    id_destino = input('Digite o id de destino: ')
+    data_hora_ida = input('Digite a data e a hora da ida: ')
+    data_hora_volta = input('Digite a data e hora da volta: ')
+    id_empresa_aerea = input('Digite o id da empresa aerea: ')
+    id_portao_embarque = input('Digite o id do portão de embarque: ')
+    id_tipo_viagem = input('Digite o id do tipo de viagem: ')
+    id_escala = input('Digite o id da escala: ')
+    preco_passagem = input('Digite o preco da passagem: ')
+
+    cursor.execute('INSERT INTO passagem (numero_voo, id_origem, id_destino, data_hora_ida, data_hora_volta, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala, preco_passagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                   (numero_voo, id_origem, id_destino, data_hora_ida, data_hora_volta, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala, preco_passagem))
+
+    conec.commit()
+
+    conec.close()
