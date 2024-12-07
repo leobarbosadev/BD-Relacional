@@ -4,7 +4,14 @@ from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destin
 
 def atualizar_dados_cliente():
     
-    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     cursor = conec.cursor()
     
@@ -34,7 +41,14 @@ def atualizar_dados_cliente():
     
 def atualizar_dados_destino():
     
-    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     cursor = conec.cursor()
     
@@ -64,8 +78,14 @@ def atualizar_dados_destino():
     
 def atualizar_empresa_aerea():
     
-    # Criar conexão com o banco de dados
-    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
     
     # Permite que utilize comandos SQL
     cursor = conec.cursor()
@@ -91,8 +111,15 @@ def atualizar_empresa_aerea():
         conec.close() # Fecha o banco de dados
         
 def atualizar_portao_embarque():
-    # Criar conexão com o banco de dados
-    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+    
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
     
     # Permite que utilize comandos SQL
     cursor = conec.cursor()
@@ -119,7 +146,13 @@ def atualizar_portao_embarque():
 
 # def atualizar_tipo_viagem():
 #         # Criar conexão com o banco de dados
-#     conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+#         base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    # db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    # conec = sqlite3.connect(db_path)
     
 #     # Permite que utilize comandos SQL
 #     cursor = conec.cursor()

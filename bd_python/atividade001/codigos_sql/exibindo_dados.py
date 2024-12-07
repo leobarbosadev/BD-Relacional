@@ -4,7 +4,14 @@ from prettytable import PrettyTable
 
 def exibir_dados_cliente():
 
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -28,7 +35,14 @@ def exibir_dados_cliente():
     
 def exibir_dados_destino():
     
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -52,7 +66,14 @@ def exibir_dados_destino():
 
 def exibir_dados_empresa_aerea():
         
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -76,7 +97,14 @@ def exibir_dados_empresa_aerea():
     
 def exibir_dados_portao_embarque():
         
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -100,7 +128,14 @@ def exibir_dados_portao_embarque():
 
 def exibir_dados_tipo_viagem():
         
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -124,7 +159,14 @@ def exibir_dados_tipo_viagem():
 
 def exibir_dados_escala():
             
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -148,7 +190,14 @@ def exibir_dados_escala():
 
 def exibir_dados_passagem():
             
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()

@@ -3,11 +3,15 @@ import sqlite3
 
 
 def inserir_dados_cliente():
+    
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # criar_banco()
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -23,11 +27,16 @@ def inserir_dados_cliente():
 
     conec.close()
 
-
 def inserir_dados_destino():
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -43,11 +52,16 @@ def inserir_dados_destino():
 
     conec.close()
 
-
 def inserir_dados_empresa_aerea():
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -62,11 +76,16 @@ def inserir_dados_empresa_aerea():
 
     conec.close()
 
-
 def inserir_dados_portao_embarque():
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -81,11 +100,16 @@ def inserir_dados_portao_embarque():
 
     conec.close()
 
-
 def inserir_dados_tipo_viagem():
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
@@ -100,11 +124,16 @@ def inserir_dados_tipo_viagem():
 
     conec.close()
 
-
 def inserir_dados_escala():
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     cursor = conec.cursor()
 
@@ -117,7 +146,6 @@ def inserir_dados_escala():
     conec.commit()
 
     conec.close()
-
 
 def inserir_dados_passagem():
 

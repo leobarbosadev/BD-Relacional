@@ -1,8 +1,15 @@
+import os
 import sqlite3
 def criar_banco():
 
-    # Criando conexão com o banco
-    conec = sqlite3.connect('C:/repositorios\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()

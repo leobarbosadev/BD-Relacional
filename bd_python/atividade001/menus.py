@@ -1,7 +1,7 @@
 import os
 from codigos_sql.criar_tabelas_e_banco import criar_banco
 from codigos_sql.inserindo_dados import inserir_dados_cliente, inserir_dados_destino, inserir_dados_empresa_aerea, inserir_dados_portao_embarque, inserir_dados_tipo_viagem, inserir_dados_escala, inserir_dados_passagem
-from codigos_sql.atualizando_dados import atualizar_dados_cliente, atualizar_dados_destino, atualizar_empresa_aerea, atualizar_portao_embarque, atualizar_tipo_viagem
+from codigos_sql.atualizando_dados import atualizar_dados_cliente, atualizar_dados_destino, atualizar_empresa_aerea, atualizar_portao_embarque 
 from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem
 from codigos_sql.excluindo_dados import excluir_dados_cliente
 
@@ -119,10 +119,10 @@ def submenu_alterar():
         print()
         atualizar_portao_embarque()
         os.system('cls')
-    elif submenu == '5':
-        print()
-        atualizar_tipo_viagem()
-        os.system('cls')
+    # elif submenu == '5':
+    #     print()
+    #     atualizar_tipo_viagem()
+    #     os.system('cls')
 
 def submenu_exibir():
     print()
