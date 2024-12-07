@@ -1,4 +1,4 @@
-import os
+# import os
 import sqlite3
 from codigos_sql.exibindo_dados import exibir_dados_cliente
 
@@ -20,4 +20,7 @@ def excluir_dados_cliente():
         input('Dados do cliente excluido com sucesso')
         
         conec.close()
+
+
+
 

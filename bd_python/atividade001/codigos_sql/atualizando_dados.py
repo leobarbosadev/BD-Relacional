@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino
+from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem, exibir_dados_escala, exibir_dados_passagem
 
 def atualizar_dados_cliente():
     
@@ -28,7 +28,7 @@ def atualizar_dados_cliente():
 
         conec.commit()
         
-        input('Dados do cliente inseridos com sucesso')
+        input('Dados do cliente alterados com sucesso')
         
     conec.close()
     
@@ -41,42 +41,105 @@ def atualizar_dados_destino():
     exibir_dados_destino()
     print()
     
-    id_cliente = input('Digite o id do cliente que deseja atualizar: ')
+    id_destino = input('Digite o id do destino que deseja atualizar: ')
     
-    cursor.execute('SELECT * FROM destino WHERE id = ?',(id_cliente,))
+    cursor.execute('SELECT * FROM destino WHERE id_destino = ?',(id_destino,))
     resultado = cursor.fetchone()
     
     if not resultado:
-        input("Cliente não encontrado!")
+        input("Destino não encontrado!")
     else:
-        print(f'\nNome atual: {resultado[1]}')
-        print(f'Idade atual: {resultado[2]}')
+        print(f'\nDestino atual: {resultado[1]}')
+        print(f'País atual: {resultado[2]}')
 
-        novo_nome = input(f'Novo nome ou Enter para manter "{resultado[1]}": ') or resultado[1]
-        nova_idade = input(f'Nova idade ou Enter para manter "{resultado[2]}": ') or resultado[2]
-        cursor.execute('UPDATE cliente SET nome = ?, idade = ? WHERE id= ?', (novo_nome, nova_idade, id_cliente))
+        novo_destino = input(f'Novo destino ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        novo_pais = input(f'Novo país ou Enter para manter "{resultado[2]}": ') or resultado[2]
+        cursor.execute('UPDATE destino SET nome_destino = ?, pais = ? WHERE id_destino = ?', (novo_destino, novo_pais, id_destino))
 
         conec.commit()
         
-        input('Dados do cliente inseridos com sucesso')
+        input('Dados do destino alterados com sucesso')
         
     conec.close()
     
 def atualizar_empresa_aerea():
     
     # Criar conexão com o banco de dados
-    conec = sqlite3.connect('C:/Users\LEO-PC\Documents\estudos\BD-Relacional/bd_python/atividade001\codigos_sql\passagens.db')
+    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
     
     # Permite que utilize comandos SQL
     cursor = conec.cursor()
     
-    os.system('cls')
-    nome_empresa = input('Digite o nome da empresa aérea que deseja atualizar: ')
-    novo_nome_empresa = input('Digite o novo nome da empresa aérea: ')
+    exibir_dados_empresa_aerea()
+    print()
     
-    cursor.execute('UPDATE empresa_aerea SET nome_empresa_aerea = ? WHERE nome_empresa_aerea = ?', (novo_nome_empresa, nome_empresa))
+    id_empresa_aerea = input('Digite o id da empresa aérea que deseja atualizar: ')
     
-    conec.commit() # Salva as transações no banco de dados
+    cursor.execute('SELECT * FROM empresa_aerea WHERE id_empresa_aerea = ?',(id_empresa_aerea,))
+    resultado = cursor.fetchone()
     
-    conec.close() # Fecha o banco de dados
+    if not resultado:
+            input("Empresa aérea não encontrada!")
+    else:
+        print(f'\nNome atual da empresa: {resultado[1]}')
+        
+        novo_nome_empresa = input(f'Novo nome da Empresa aérea ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        cursor.execute('UPDATE empresa_aerea SET nome_empresa_aerea = ? WHERE id_empresa_aerea= ?', (novo_nome_empresa, id_empresa_aerea))
     
+        conec.commit() # Salva as transações no banco de dados
+    
+        conec.close() # Fecha o banco de dados
+        
+def atualizar_portao_embarque():
+    # Criar conexão com o banco de dados
+    conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+    
+    # Permite que utilize comandos SQL
+    cursor = conec.cursor()
+    
+    exibir_dados_portao_embarque()
+    print()
+    
+    id_portao = input('Digite o id do portão de embarque que deseja atualizar: ')
+    
+    cursor.execute('SELECT * FROM portao_embarque WHERE id_portao_embarque = ?', (id_portao,))
+    resultado = cursor.fetchone()
+    
+    if not resultado:
+        input('Portão de embarque não encontrado!')
+    else:
+        print(f'\nNome do portão de embarque: {resultado[1]}')
+        
+        novo_portao_embarque = input(f'Novo portão de embarque ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        cursor.execute('UPDATE portao_embarque SET nome_portao_embarque = ? WHERE id_portao_embarque = ?', (novo_portao_embarque, id_portao))
+        
+        conec.commit()
+        
+        conec.close()
+
+# def atualizar_tipo_viagem():
+#         # Criar conexão com o banco de dados
+#     conec = sqlite3.connect('..\\BD-Relacional\\bd_python\\atividade001\\codigos_sql\\passagens.db')
+    
+#     # Permite que utilize comandos SQL
+#     cursor = conec.cursor()
+    
+#     exibir_dados_tipo_viagem()
+#     print()
+    
+#     id_tipo_viagem = input('Digite o id do tipo de viagem que deseja atualizar: ')
+    
+#     cursor.execute('SELECT * FROM tipo_viagem WHERE id_tipo_viagem = ?', (id_tipo_viagem,))
+#     resultado = cursor.fetchone()
+    
+#     if not resultado:
+#         input('Tipo de viagem não encontrado!')
+#     else:
+#         print(f'\nNome do tipo de viagem: {resultado[1]}')
+        
+#         novo_tipo_viagem = input(f'Novo tipo de viagem ou Enter para manter "{resultado[1]}": ') or resultado[1]
+#         cursor.execute('UPDATE tipo_viagem SET nome_portao_embarque = ? WHERE id_portao_embarque = ?', (novo_tipo_viagem, id_tipo_viagem))
+        
+#         conec.commit()
+        
+#         conec.close()
