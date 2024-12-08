@@ -106,3 +106,79 @@ def excluir_dados_portao_embarque():
     input('Dados do portão de embarque excluido com sucesso')
 
     conec.close()
+    
+def excluir_dados_tipo_viagem():
+    
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
+
+    cursor = conec.cursor()
+
+    exibir_dados_tipo_viagem()
+    print()
+
+    id_tipo_viagem = input('Digite o id do tipo de viagem que deseja excluir: ')
+
+    cursor.execute('DELETE FROM tipo_viagem WHERE id_tipo_viagem = ?',(id_tipo_viagem,))
+
+    conec.commit()
+
+    input('Dados do tipo de viagem excluido com sucesso')
+
+    conec.close()
+    
+def excluir_dados_escala():
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
+
+    cursor = conec.cursor()
+
+    exibir_dados_escala()
+    print()
+
+    id_escala = input('Digite o id da escala que deseja excluir: ')
+
+    cursor.execute('DELETE FROM escala WHERE id_escala = ?',(id_escala,))
+
+    conec.commit()
+
+    input('Dados da escala excluido com sucesso')
+
+    conec.close()
+
+def excluir_dados_passagem():
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
+
+    cursor = conec.cursor()
+
+    exibir_dados_passagem()
+    print()
+
+    id_passagem = input('Digite o id da passagem que deseja excluir: ')
+
+    cursor.execute('DELETE FROM passagem WHERE id_passagem = ?',(id_passagem,))
+
+    conec.commit()
+
+    input('Dados da passagem excluido com sucesso')
+
+    conec.close()
