@@ -2,6 +2,7 @@ import os
 import sqlite3
 
 
+
 def inserir_dados_cliente():
     
     # Obter o caminho absoluto da pasta onde está o script sendo executado
@@ -24,6 +25,8 @@ def inserir_dados_cliente():
         'INSERT INTO cliente (nome, idade) VALUES (?, ?)', (nome, idade))
 
     conec.commit()
+    
+    input('Dados do cliente inseridos com sucesso')
 
     conec.close()
 
@@ -40,7 +43,7 @@ def inserir_dados_destino():
 
     # Cursor permite que eu utilize comandos SQL
     cursor = conec.cursor()
-
+    
     os.system('cls')
     nome_destino = input('Digite o destino: ')
     pais = input('Digite o país: ')
@@ -49,6 +52,8 @@ def inserir_dados_destino():
         'INSERT INTO destino (nome_destino, pais) VALUES (?, ?)', (nome_destino, pais))
 
     conec.commit()
+    
+    input('Dados do destino inseridos com sucesso')
 
     conec.close()
 
@@ -74,6 +79,8 @@ def inserir_dados_empresa_aerea():
 
     conec.commit()
 
+    input('Dados da empresa aérea inseridos com sucesso')
+    
     conec.close()
 
 def inserir_dados_portao_embarque():
@@ -97,6 +104,8 @@ def inserir_dados_portao_embarque():
         'INSERT INTO portao_embarque (nome_portao_embarque) VALUES (?)', (nome_portao_embarque,))
 
     conec.commit()
+    
+    input('Dados do portão de embarque inseridos com sucesso')
 
     conec.close()
 
@@ -121,6 +130,8 @@ def inserir_dados_tipo_viagem():
         'INSERT INTO tipo_viagem (tipo_viagem) VALUES (?)', (tipo_viagem,))
 
     conec.commit()
+    
+    input('Dados do tipo de viagem inseridos com sucesso')
 
     conec.close()
 
@@ -144,6 +155,8 @@ def inserir_dados_escala():
         'INSERT INTO escala (quantidade_escala) VALUES (?)', (qtd_escala,))
 
     conec.commit()
+    
+    input('Dados de escala inseridos com sucesso')
 
     conec.close()
 
@@ -169,5 +182,7 @@ def inserir_dados_passagem():
                    (numero_voo, id_origem, id_destino, data_hora_ida, data_hora_volta, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala, preco_passagem))
 
     conec.commit()
+    
+    input('Dados de passgem inseridos com sucesso')
 
     conec.close()

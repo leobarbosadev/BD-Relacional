@@ -10,5 +10,5 @@
 # atualizar informações(por exemplo, ajustar horários ou destinos) e, quando necessário, excluir registros de passagens.
 
 from menus import menu_principal
-
 menu_principal()
+

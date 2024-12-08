@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem, exibir_dados_escala, exibir_dados_passagem
+from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem, exibir_dados_escala
 
 def atualizar_dados_cliente():
     
@@ -107,8 +107,10 @@ def atualizar_empresa_aerea():
         cursor.execute('UPDATE empresa_aerea SET nome_empresa_aerea = ? WHERE id_empresa_aerea= ?', (novo_nome_empresa, id_empresa_aerea))
     
         conec.commit() # Salva as transações no banco de dados
-    
-        conec.close() # Fecha o banco de dados
+        
+        input('Dados do destino alterados com sucesso')
+        
+    conec.close() # Fecha o banco de dados
         
 def atualizar_portao_embarque():
     
@@ -142,37 +144,72 @@ def atualizar_portao_embarque():
         
         conec.commit()
         
-        conec.close()
+    conec.close()
 
-# def atualizar_tipo_viagem():
-#         # Criar conexão com o banco de dados
-#         base_dir = os.path.dirname(os.path.abspath(__file__))
+def atualizar_tipo_viagem():
+    
+    # Criar conexão com o banco de dados
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Caminho do banco de dados relativo à pasta do script
-    # db_path = os.path.join(base_dir, "passagens.db")
+    db_path = os.path.join(base_dir, "passagens.db")
 
     # Conectar ao banco de dados
-    # conec = sqlite3.connect(db_path)
+    conec = sqlite3.connect(db_path)
     
-#     # Permite que utilize comandos SQL
-#     cursor = conec.cursor()
+    # Permite que utilize comandos SQL
+    cursor = conec.cursor()
     
-#     exibir_dados_tipo_viagem()
-#     print()
+    exibir_dados_tipo_viagem()
+    print()
     
-#     id_tipo_viagem = input('Digite o id do tipo de viagem que deseja atualizar: ')
+    id_tipo_viagem = input('Digite o id do tipo de viagem que deseja atualizar: ')
     
-#     cursor.execute('SELECT * FROM tipo_viagem WHERE id_tipo_viagem = ?', (id_tipo_viagem,))
-#     resultado = cursor.fetchone()
+    cursor.execute('SELECT * FROM tipo_viagem WHERE id_tipo_viagem = ?', (id_tipo_viagem,))
+    resultado = cursor.fetchone()
     
-#     if not resultado:
-#         input('Tipo de viagem não encontrado!')
-#     else:
-#         print(f'\nNome do tipo de viagem: {resultado[1]}')
+    if not resultado:
+        input('Tipo de viagem não encontrado!')
+    else:
+        print(f'\nNome do tipo de viagem: {resultado[1]}')
         
-#         novo_tipo_viagem = input(f'Novo tipo de viagem ou Enter para manter "{resultado[1]}": ') or resultado[1]
-#         cursor.execute('UPDATE tipo_viagem SET nome_portao_embarque = ? WHERE id_portao_embarque = ?', (novo_tipo_viagem, id_tipo_viagem))
+        novo_tipo_viagem = input(f'Novo tipo de viagem ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        cursor.execute('UPDATE tipo_viagem SET tipo_viagem = ? WHERE id_tipo_viagem = ?', (novo_tipo_viagem, id_tipo_viagem))
         
-#         conec.commit()
+        conec.commit()
         
-#         conec.close()
+    conec.close()
+    
+def atualizar_dados_escala():
+    
+    # Criar conexão com o banco de dados
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
+    
+    # Permite que utilize comandos SQL
+    cursor = conec.cursor()
+    
+    exibir_dados_escala()
+    print()
+    
+    id_escala = input('Digite o id da escala que deseja atualizar: ')
+    
+    cursor.execute('SELECT * FROM escala WHERE id_escala = ?', (id_escala,))
+    resultado = cursor.fetchone()
+    
+    if not resultado:
+        input('Escala não encontrada!')
+    else:
+        print(f'\nQuantidade de escalas: {resultado[1]}')
+        
+        nova_escala = input(f'QUantidade de escalas ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        cursor.execute('UPDATE escala SET quantidade_escala = ? WHERE id_escala = ?', (nova_escala, id_escala))
+        
+        conec.commit()
+        
+    conec.close()
