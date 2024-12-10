@@ -20,7 +20,7 @@ def excluir_dados_cliente():
     exibir.exibir_dados_cliente()
     print()
 
-    id_cliente = input('Digite o id do cliente que deseja atualizar: ')
+    id_cliente = input('Digite o id do cliente que deseja excluir: ')
 
     cursor.execute('DELETE FROM cliente WHERE id = ?',(id_cliente,))
 

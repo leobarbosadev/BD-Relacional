@@ -17,6 +17,7 @@ def inserir_dados_cliente():
     cursor = conec.cursor()
 
     os.system('cls')
+    print('Inserindo dados de clientes...')
     nome = input('Digite um nome: ')
     idade = int(input('Digite a idade: '))
 
