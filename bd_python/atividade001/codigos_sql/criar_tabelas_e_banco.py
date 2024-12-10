@@ -1,5 +1,7 @@
 import os
 import sqlite3
+
+
 def criar_banco():
 
     # Obter o caminho absoluto da pasta onde está o script sendo executado

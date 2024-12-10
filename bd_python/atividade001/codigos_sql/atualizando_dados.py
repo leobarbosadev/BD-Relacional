@@ -1,6 +1,5 @@
 import os
 import sqlite3
-# from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem, exibir_dados_escala
 import codigos_sql.exibindo_dados as exibir
 
 

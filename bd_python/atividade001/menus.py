@@ -1,13 +1,11 @@
 import os
 from codigos_sql.criar_tabelas_e_banco import criar_banco
-from codigos_sql.inserindo_dados import inserir_dados_cliente, inserir_dados_destino, inserir_dados_empresa_aerea, inserir_dados_portao_embarque, inserir_dados_tipo_viagem, inserir_dados_escala, inserir_dados_passagem
-from codigos_sql.atualizando_dados import atualizar_dados_cliente, atualizar_dados_destino, atualizar_empresa_aerea, atualizar_portao_embarque, atualizar_tipo_viagem, atualizar_dados_escala
-# from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem, exibir_dados_escala, exibir_dados_passagem
+import codigos_sql.inserindo_dados as inserir
+import codigos_sql.atualizando_dados as atualizar
 import codigos_sql.exibindo_dados as exibir
-from codigos_sql.excluindo_dados import excluir_dados_cliente, excluir_dados_destino, excluir_dados_empresa_aerea, excluir_dados_portao_embarque, excluir_dados_tipo_viagem, excluir_dados_escala, excluir_dados_passagem
+import codigos_sql.excluindo_dados as excluir
 
 criar_banco()
-
 
 def menu_principal():
     while True:
@@ -53,31 +51,31 @@ def submenu_inserir():
         menu_principal()
     elif submenu == '1':
         os.system('cls')
-        inserir_dados_cliente()
+        inserir.inserir_dados_cliente()
         print()
     elif submenu == '2':
         os.system('cls')
-        inserir_dados_destino()
+        inserir.inserir_dados_destino()
         print()
     elif submenu == '3':
         os.system('cls')
-        inserir_dados_empresa_aerea()
+        inserir.inserir_dados_empresa_aerea()
         print()
     elif submenu == '4':
         os.system('cls')
-        inserir_dados_portao_embarque()
+        inserir.inserir_dados_portao_embarque()
         print()
     elif submenu == '5':
         os.system('cls')
-        inserir_dados_tipo_viagem()
+        inserir.inserir_dados_tipo_viagem()
         print()
     elif submenu == '6':
         os.system('cls')
-        inserir_dados_escala()
+        inserir.inserir_dados_escala()
         print()
     elif submenu == '7':
         os.system('cls')
-        inserir_dados_passagem()
+        inserir.inserir_dados_passagem()
         print()
     else:
         input('Opção invalida')
@@ -98,27 +96,27 @@ def submenu_alterar():
         menu_principal()
     elif submenu == '1':
         os.system('cls')
-        atualizar_dados_cliente()
+        atualizar.atualizar_dados_cliente()
         print()
     elif submenu == '2':
         os.system('cls')
-        atualizar_dados_destino()
+        atualizar.atualizar_dados_destino()
         print()
     elif submenu == '3':
         print()
-        atualizar_empresa_aerea()
+        atualizar.atualizar_empresa_aerea()
         os.system('cls')
     elif submenu == '4':
         os.system('cls')
-        atualizar_portao_embarque()
+        atualizar.atualizar_portao_embarque()
         print()
     elif submenu == '5':
         os.system('cls')
-        atualizar_tipo_viagem()
+        atualizar.atualizar_tipo_viagem()
         print()
     elif submenu == '6':
         os.system('cls')
-        atualizar_dados_escala()
+        atualizar.atualizar_dados_escala()
         print()
 
 def submenu_exibir():
@@ -185,28 +183,28 @@ def submenu_excluir():
         menu_principal()
     elif submenu == '1':
         os.system('cls')
-        excluir_dados_cliente()
+        excluir.excluir_dados_cliente()
         print()
     elif submenu == '2':
         os.system('cls')
-        excluir_dados_destino()
+        excluir.excluir_dados_destino()
         print()
     elif submenu == '3':
         os.system('cls')
-        excluir_dados_empresa_aerea()
+        excluir.excluir_dados_empresa_aerea()
         print()
     elif submenu == '4':
         os.system('cls')
-        excluir_dados_portao_embarque()
+        excluir.excluir_dados_portao_embarque()
         print()
     elif submenu == '5':
         os.system('cls')
-        excluir_dados_tipo_viagem()
+        excluir.excluir_dados_tipo_viagem()
         print()
     elif submenu == '6':
         os.system('cls')
-        excluir_dados_escala()
+        excluir.excluir_dados_escala()
         print()
     elif submenu == '7':
         os.system('cls')
-        excluir_dados_passagem()
+        excluir.excluir_dados_passagem()

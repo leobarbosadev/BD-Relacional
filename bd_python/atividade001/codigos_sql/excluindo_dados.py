@@ -1,7 +1,8 @@
 # import os
 import os
 import sqlite3
-from codigos_sql.exibindo_dados import exibir_dados_cliente, exibir_dados_destino, exibir_dados_empresa_aerea, exibir_dados_portao_embarque, exibir_dados_tipo_viagem, exibir_dados_escala, exibir_dados_passagem
+import codigos_sql.exibindo_dados as exibir
+
 
 def excluir_dados_cliente():
 
@@ -16,7 +17,7 @@ def excluir_dados_cliente():
 
     cursor = conec.cursor()
 
-    exibir_dados_cliente()
+    exibir.exibir_dados_cliente()
     print()
 
     id_cliente = input('Digite o id do cliente que deseja atualizar: ')
@@ -42,7 +43,7 @@ def excluir_dados_destino():
 
     cursor = conec.cursor()
 
-    exibir_dados_destino()
+    exibir.exibir_dados_destino()
     print()
 
     id_destino = input('Digite o id do destino que deseja excluir: ')
@@ -68,7 +69,7 @@ def excluir_dados_empresa_aerea():
 
     cursor = conec.cursor()
 
-    exibir_dados_empresa_aerea()
+    exibir.exibir_dados_empresa_aerea()
     print()
 
     id_empresa_aerea = input('Digite o id da empresa aérea que deseja excluir: ')
@@ -94,7 +95,7 @@ def excluir_dados_portao_embarque():
 
     cursor = conec.cursor()
 
-    exibir_dados_portao_embarque()
+    exibir.exibir_dados_portao_embarque()
     print()
 
     id_portao_embarque = input('Digite o id da empresa aérea que deseja excluir: ')
@@ -120,7 +121,7 @@ def excluir_dados_tipo_viagem():
 
     cursor = conec.cursor()
 
-    exibir_dados_tipo_viagem()
+    exibir.exibir_dados_tipo_viagem()
     print()
 
     id_tipo_viagem = input('Digite o id do tipo de viagem que deseja excluir: ')
@@ -145,7 +146,7 @@ def excluir_dados_escala():
 
     cursor = conec.cursor()
 
-    exibir_dados_escala()
+    exibir.exibir_dados_escala()
     print()
 
     id_escala = input('Digite o id da escala que deseja excluir: ')
@@ -170,7 +171,7 @@ def excluir_dados_passagem():
 
     cursor = conec.cursor()
 
-    exibir_dados_passagem()
+    exibir.exibir_dados_passagem()
     print()
 
     id_passagem = input('Digite o id da passagem que deseja excluir: ')

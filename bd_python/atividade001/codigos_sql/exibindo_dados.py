@@ -2,6 +2,7 @@ import os
 import sqlite3
 from prettytable import PrettyTable
 
+
 def exibir_dados_cliente():
 
     # Obter o caminho absoluto da pasta onde está o script sendo executado
