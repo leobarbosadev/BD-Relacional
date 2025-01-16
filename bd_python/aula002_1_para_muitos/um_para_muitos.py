@@ -8,7 +8,7 @@ import os
 os.system('cls')
 
 
-db_path = Path('BD') / 'bd_rel_1_n.db'
+db_path = Path('bd_python/aula002_1_para_muitos') / 'bd_rel_1_n.db'
 conn = sqlite3.connect(str(db_path))
 cursor = conn.cursor()
 
@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS Pedidos (
     produto TEXT NOT NULL,
     quantidade INTEGER NOT NULL,
     data TEXT NOT NULL,
-    valor_total REAL NOT NULL
-    FOREING KEY (id_cliente) REFERENCES Clientes (id_cliente)
+    valor_total REAL NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes (id_cliente)
 )
 ''')
 
@@ -54,9 +54,7 @@ def inserir_cliente():
     telefone = input('Digite o telefone do cliente: ')
     cidade = input('Digite a cidade do cliente: ')
     cursor.execute('''
-    INSERT INTO Cliente (nome, email, telefone, cidade)
-    VALUES (?, ?, ?, ?)
-    ''', (nome, email, telefone, cidade))
+        INSERT INTO Clientes (nome, email, telefone, cidade) VALUES (?, ?, ?, ?)''', (nome, email, telefone, cidade))
     conn.commit()
     print('Cliente inserido com sucesso!')
 
@@ -191,6 +189,7 @@ def alterar_pedido():
 
 # Menu interativo
 while True:
+    os.system('cls')
     print('\nMenu:')
     print('1. Inserir Cliente')
     print('2. Inserir Pedido')
@@ -200,13 +199,21 @@ while True:
     opcao = input('Escolha uma opção: ')
     
     if opcao == '1':
+        os.system('cls')
         inserir_cliente()
+        input('Precione Enter para voltar ao menu')
     elif opcao == '2':
+        os.system('cls')
         inserir_pedido()
+        input('Precione Enter para voltar ao menu')
     elif opcao == '3':
+        os.system('cls')
         consultar_pedidos()
+        input('Precione Enter para voltar ao menu')
     elif opcao == '4':
+        os.system('cls')
         alterar_pedido()
+        input('Precione Enter para voltar ao menu')
     elif opcao == '5':
         print('Saindo...')
         break
