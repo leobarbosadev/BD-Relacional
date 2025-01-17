@@ -11,7 +11,7 @@ def menu_principal():
     while True:
         os.system('cls')
         print('Escolha uma opção')
-        menu = input('1 - Adicionar\n'
+        menu = input('1 - Inserir\n'
                      + f'2 - Alterar\n'
                      + f'3 - Exibir\n'
                      + f'4 - Apagar\n'
@@ -39,14 +39,15 @@ def submenu_inserir():
         print('O que deseja adicionar?')
     
         submenu = input('1 - Cliente\n'
-                        + f'2 - Destino\n'
-                        + f'3 - Empresa aérea\n'
-                        + f'4 - Portão de embarque\n'
-                        + f'5 - Tipo de de viagem\n'
-                        + f'6 - Quantidade de escalas\n'
-                        + f'7 - Passagens\n'
-                        + f'8 - Voltar\n\n').strip()
-        if submenu == '8':
+                        + f'2 - Local\n'
+                        + f'3 - Voo\n'
+                        + f'4 - Empresa aérea\n'
+                        + f'5 - Portão de embarque\n'
+                        + f'6 - Tipo de de viagem\n'
+                        + f'7 - Quantidade de escalas\n'
+                        + f'8 - Passagens\n'
+                        + f'9 - Voltar\n\n').strip()
+        if submenu == '9':
             break
         elif submenu == '1':
             while True:
@@ -60,13 +61,22 @@ def submenu_inserir():
         elif submenu == '2':
             while True:
                 os.system('cls')
-                inserir.inserir_dados_destino()
+                inserir.inserir_dados_local()
                 print()
-                opcao = input('Deseja adicionar mais destinos? (S-Sim)').lower()
+                opcao = input('Deseja adicionar mais locais? (S-Sim)').lower()
                 if opcao != 's':
                     os.system('cls')
                     break
         elif submenu == '3':
+            while True:
+                os.system('cls')
+                inserir.inserir_dados_voo()
+                print()
+                opcao = input('Deseja adicionar mais voos? (S-Sim)').lower()
+                if opcao != 's':
+                    os.system('cls')
+                    break
+        elif submenu == '4':
             while True:
                 os.system('cls')
                 inserir.inserir_dados_empresa_aerea()
@@ -75,7 +85,7 @@ def submenu_inserir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '4':
+        elif submenu == '5':
             while True:
                 os.system('cls')
                 inserir.inserir_dados_portao_embarque()
@@ -84,7 +94,7 @@ def submenu_inserir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '5':
+        elif submenu == '6':
             while True:
                 os.system('cls')
                 inserir.inserir_dados_tipo_viagem()
@@ -93,7 +103,7 @@ def submenu_inserir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '6':
+        elif submenu == '7':
             while True:
                 os.system('cls')
                 inserir.inserir_dados_escala()
@@ -102,7 +112,7 @@ def submenu_inserir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '7':
+        elif submenu == '8':
             while True:
                 os.system('cls')
                 inserir.inserir_dados_passagem()
