@@ -30,7 +30,7 @@ def excluir_dados_cliente():
 
     conec.close()
 
-def excluir_dados_destino():
+def excluir_dados_local():
     
     # Obter o caminho absoluto da pasta onde está o script sendo executado
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -43,16 +43,42 @@ def excluir_dados_destino():
 
     cursor = conec.cursor()
 
-    exibir.exibir_dados_destino()
+    exibir.exibir_dados_local()
     print()
 
-    id_destino = input('Digite o id do destino que deseja excluir: ')
+    id_local = input('Digite o id do local que deseja excluir: ')
 
-    cursor.execute('DELETE FROM destino WHERE id_destino = ?',(id_destino,))
+    cursor.execute('DELETE FROM local WHERE local = ?',(id_local,))
 
     conec.commit()
 
-    input('Dados do destino excluido com sucesso')
+    input('Dados do local excluido com sucesso')
+
+    conec.close()
+
+def excluir_dados_voo():
+    
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
+
+    cursor = conec.cursor()
+
+    exibir.exibir_dados_voo()
+    print()
+
+    id_voo = input('Digite o id do voo que deseja excluir: ')
+
+    cursor.execute('DELETE FROM voo WHERE id_voo = ?',(id_voo,))
+
+    conec.commit()
+
+    input('Dados do voo excluido com sucesso')
 
     conec.close()
 
