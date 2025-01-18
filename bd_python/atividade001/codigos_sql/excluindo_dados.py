@@ -22,7 +22,7 @@ def excluir_dados_cliente():
 
     id_cliente = input('Digite o id do cliente que deseja excluir: ')
 
-    cursor.execute('DELETE FROM cliente WHERE id = ?',(id_cliente,))
+    cursor.execute('DELETE FROM cliente WHERE id_cliente = ?',(id_cliente,))
 
     conec.commit()
 
@@ -48,7 +48,7 @@ def excluir_dados_local():
 
     id_local = input('Digite o id do local que deseja excluir: ')
 
-    cursor.execute('DELETE FROM local WHERE local = ?',(id_local,))
+    cursor.execute('DELETE FROM local WHERE id_local = ?',(id_local,))
 
     conec.commit()
 

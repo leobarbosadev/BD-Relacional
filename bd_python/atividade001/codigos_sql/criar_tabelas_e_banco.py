@@ -67,7 +67,7 @@ def criar_banco():
     '''
     )
     
-    cursor.execute( # EXECUTIVA/ PRIMEIRA CLASSE/ ECONÔMICA
+    cursor.execute( # EXECUTIVA/ PRIMEIRA CLASSE/ ECONÔMICA / PREMIUM
     '''
     CREATE TABLE IF NOT EXISTS tipo_viagem(
         id_tipo_viagem INTEGER PRIMARY KEY AUTOINCREMENT,

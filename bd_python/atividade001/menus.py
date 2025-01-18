@@ -19,6 +19,8 @@ def menu_principal():
         if menu == '5':
             input('Obrigado por utilizar nosso sistema!')
             break
+        elif menu == '':
+            os.system('cls')
         elif menu == '1':
             os.system('cls')
             submenu_inserir()
@@ -254,13 +256,14 @@ def submenu_excluir():
         print('O que deseja apagar?')
         submenu = input('1 - Cliente\n'
                         + f'2 - Local\n'
-                        + f'3 - Empresa aérea\n'
-                        + f'4 - Portão de embarque\n'
-                        + f'5 - Tipo de de viagem\n'
-                        + f'6 - Quantidade de escalas\n'
-                        + f'7 - Passagens\n'
-                        + f'8 - Voltar\n\n').strip()
-        if submenu == '8':
+                        + f'3 - Voo\n'
+                        + f'4 - Empresa aérea\n'
+                        + f'5 - Portão de embarque\n'
+                        + f'6 - Tipo de de viagem\n'
+                        + f'7 - Quantidade de escalas\n'
+                        + f'8 - Passagens\n'
+                        + f'9 - Voltar\n\n').strip()
+        if submenu == '9':
             break
         elif submenu == '1':
             while True:
@@ -274,7 +277,7 @@ def submenu_excluir():
         elif submenu == '2':
             while True:
                 os.system('cls')
-                excluir.excluir_dados_destin()
+                excluir.excluir_dados_local()
                 print()
                 opcao = input('Deseja excluir mais locais? (S-Sim)').lower()
                 if opcao != 's':
@@ -283,13 +286,22 @@ def submenu_excluir():
         elif submenu == '3':
             while True:
                 os.system('cls')
+                excluir.excluir_dados_voo()
+                print()
+                opcao = input('Deseja excluir mais voos? (S-Sim)').lower()
+                if opcao != 's':
+                    os.system('cls')
+                    break
+        elif submenu == '4':
+            while True:
+                os.system('cls')
                 excluir.excluir_dados_empresa_aerea()
                 print()
                 opcao = input('Deseja excluir mais empresas aéreas? (S-Sim)').lower()
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '4':
+        elif submenu == '5':
             while True:
                 os.system('cls')
                 excluir.excluir_dados_portao_embarque()
@@ -298,7 +310,7 @@ def submenu_excluir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '5':
+        elif submenu == '6':
             while True:
                 os.system('cls')
                 excluir.excluir_dados_tipo_viagem()
@@ -307,7 +319,7 @@ def submenu_excluir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '6':
+        elif submenu == '7':
             while True:
                 os.system('cls')
                 excluir.excluir_dados_escala()
@@ -316,7 +328,7 @@ def submenu_excluir():
                 if opcao != 's':
                     os.system('cls')
                     break
-        elif submenu == '7':
+        elif submenu == '8':
             while True:
                 os.system('cls')
                 excluir.excluir_dados_passagem()
