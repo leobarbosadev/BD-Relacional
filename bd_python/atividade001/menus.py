@@ -130,13 +130,14 @@ def submenu_alterar():
     while True:
         print('O que deseja alterar?')
         submenu = input('1 - Cliente\n'
-                        + f'2 - Destino\n'
-                        + f'3 - Empresa aérea\n'
-                        + f'4 - Portão de embarque\n'
-                        + f'5 - Tipo de de viagem\n'
-                        + f'6 - Quantidade de escalas\n'
-                        + f'7 - Voltar\n\n').strip()
-        if submenu == '7':
+                        + f'2 - Local\n'
+                        + f'3 - Voo\n'
+                        + f'4 - Empresa Aérea\n'
+                        + f'5 - Portão de embarque\n'
+                        + f'6 - Tipo de de viagem\n'
+                        + f'7 - Quantidade de escalas\n'
+                        + f'8 - Voltar\n\n').strip()
+        if submenu == '8':
             break
         elif submenu == '1':
             while True:
@@ -150,9 +151,9 @@ def submenu_alterar():
         elif submenu == '2':
             while True:
                 os.system('cls')
-                atualizar.atualizar_dados_destino()
+                atualizar.atualizar_dados_local()
                 print()
-                opcao = input('Deseja atualizar mais destinos? (S-Sim)').lower()
+                opcao = input('Deseja atualizar mais locais? (S-Sim)').lower()
                 if opcao != 's':
                     os.system('cls')
                     break
@@ -197,14 +198,15 @@ def submenu_exibir():
     while True:
         print('O que deseja exibir?')
         submenu = input('1 - Cliente\n'
-                        + f'2 - Destino\n'
-                        + f'3 - Empresa aérea\n'
-                        + f'4 - Portão de embarque\n'
-                        + f'5 - Tipo de de viagem\n'
-                        + f'6 - Quantidade de escalas\n'
-                        + f'7 - Passagens\n'
-                        + f'8 - Voltar\n\n').strip()
-        if submenu == '8':
+                        + f'2 - Local\n'
+                        + f'3 - Voo\n'
+                        + f'4 - Empresa aérea\n'
+                        + f'5 - Portão de embarque\n'
+                        + f'6 - Tipo de de viagem\n'
+                        + f'7 - Quantidade de escalas\n'
+                        + f'8 - Passagens\n'
+                        + f'9 - Voltar\n\n').strip()
+        if submenu == '9':
             break
         elif submenu == '1':
             exibir.exibir_dados_cliente()
@@ -212,31 +214,36 @@ def submenu_exibir():
             input('Precione Enter para voltar')
             os.system('cls')
         elif submenu == '2':
-            exibir.exibir_dados_destino()
+            exibir.exibir_dados_local()
             print()
             input('Precione Enter para voltar')
             os.system('cls')
         elif submenu == '3':
-            exibir.exibir_dados_empresa_aerea()
+            exibir.exibir_dados_voo()
             print()
             input('Precione Enter para voltar')
             os.system('cls')
         elif submenu == '4':
-            exibir.exibir_dados_portao_embarque()
+            exibir.exibir_dados_empresa_aerea()
             print()
             input('Precione Enter para voltar')
             os.system('cls')
         elif submenu == '5':
-            exibir.exibir_dados_tipo_viagem()
+            exibir.exibir_dados_portao_embarque()
             print()
             input('Precione Enter para voltar')
             os.system('cls')
         elif submenu == '6':
-            exibir.exibir_dados_escala()
+            exibir.exibir_dados_tipo_viagem()
             print()
             input('Precione Enter para voltar')
             os.system('cls')
         elif submenu == '7':
+            exibir.exibir_dados_escala()
+            print()
+            input('Precione Enter para voltar')
+            os.system('cls')
+        elif submenu == '8':
             exibir.exibir_dados_passagem()
             print()
             input('Precione Enter para voltar')
@@ -246,7 +253,7 @@ def submenu_excluir():
     while True:
         print('O que deseja apagar?')
         submenu = input('1 - Cliente\n'
-                        + f'2 - Destino\n'
+                        + f'2 - Local\n'
                         + f'3 - Empresa aérea\n'
                         + f'4 - Portão de embarque\n'
                         + f'5 - Tipo de de viagem\n'
@@ -267,9 +274,9 @@ def submenu_excluir():
         elif submenu == '2':
             while True:
                 os.system('cls')
-                excluir.excluir_dados_destino()
+                excluir.excluir_dados_destin()
                 print()
-                opcao = input('Deseja excluir mais destinos? (S-Sim)').lower()
+                opcao = input('Deseja excluir mais locais? (S-Sim)').lower()
                 if opcao != 's':
                     os.system('cls')
                     break

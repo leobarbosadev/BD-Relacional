@@ -45,10 +45,10 @@ def inserir_dados_local():
     cursor = conec.cursor()
     
     os.system('cls')
-    nome_destino = input('Digite o local: ')
+    nome_local = input('Digite o local: ')
 
     cursor.execute(
-        'INSERT INTO destino (nome_destino) VALUES (?)', (nome_destino,))
+        'INSERT INTO local (nome_local) VALUES (?)', (nome_local,))
 
     conec.commit()
     
@@ -203,7 +203,7 @@ def inserir_dados_passagem():
     os.system('cls')
     id_cliente = input('Digite o id do cliente: ')
     id_origem = input('Digite o id de origem: ')
-    id_destino = input('Digite o id de destino: ')
+    id_local = input('Digite o id de local: ')
     data_ida = input('Digite a data da ida: ')
     data_volta = input('Digite a data da volta: ')
     id_voo = input('Digite o id do voo: ')
@@ -212,8 +212,8 @@ def inserir_dados_passagem():
     id_tipo_viagem = input('Digite o id do tipo de viagem: ')
     id_escala = input('Digite o id da escala: ')
 
-    cursor.execute('INSERT INTO passagem (id_cliente, id_origem, id_destino, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                   (id_cliente, id_origem, id_destino, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala))
+    cursor.execute('INSERT INTO passagem (id_cliente, id_origem, id_local, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                   (id_cliente, id_origem, id_local, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala))
 
     conec.commit()
     

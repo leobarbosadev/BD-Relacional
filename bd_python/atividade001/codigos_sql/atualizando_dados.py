@@ -40,7 +40,7 @@ def atualizar_dados_cliente():
         
     conec.close()
     
-def atualizar_dados_destino():
+def atualizar_dados_local():
     
     # Obter o caminho absoluto da pasta onde está o script sendo executado
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -53,27 +53,60 @@ def atualizar_dados_destino():
 
     cursor = conec.cursor()
     
-    exibir.exibir_dados_destino()
+    exibir.exibir_dados_local()
     print()
     
-    id_destino = input('Digite o id do destino que deseja atualizar: ')
+    id_local = input('Digite o id do local que deseja atualizar: ')
     
-    cursor.execute('SELECT * FROM destino WHERE id_destino = ?',(id_destino,))
+    cursor.execute('SELECT * FROM local WHERE id_local = ?',(id_local,))
     resultado = cursor.fetchone()
     
     if not resultado:
-        input("Destino não encontrado!")
+        input("Local não encontrado!")
     else:
-        print(f'\nDestino atual: {resultado[1]}')
-        print(f'País atual: {resultado[2]}')
+        print(f'\Local atual: {resultado[1]}')
 
-        novo_destino = input(f'Novo destino ou Enter para manter "{resultado[1]}": ') or resultado[1]
-        novo_pais = input(f'Novo país ou Enter para manter "{resultado[2]}": ') or resultado[2]
-        cursor.execute('UPDATE destino SET nome_destino = ?, pais = ? WHERE id_destino = ?', (novo_destino, novo_pais, id_destino))
+        novo_local = input(f'Novo local ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        cursor.execute('UPDATE local SET nome_local = ? WHERE id_local = ?', (novo_local, id_local))
 
         conec.commit()
         
-        input('Dados do destino alterados com sucesso')
+        input('Dados do local alterados com sucesso')
+        
+    conec.close()
+
+def atualizar_dados_voo():
+    
+    # Obter o caminho absoluto da pasta onde está o script sendo executado
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho do banco de dados relativo à pasta do script
+    db_path = os.path.join(base_dir, "passagens.db")
+
+    # Conectar ao banco de dados
+    conec = sqlite3.connect(db_path)
+
+    cursor = conec.cursor()
+    
+    exibir.exibir_dados_voo()
+    print()
+    
+    id_voo = input('Digite o id do voo que deseja atualizar: ')
+    
+    cursor.execute('SELECT * FROM voo WHERE id_voo = ?',(id_voo,))
+    resultado = cursor.fetchone()
+    
+    if not resultado:
+        input("Voo não encontrado!")
+    else:
+        print(f'\Voo atual: {resultado[1]}')
+
+        novo_voo = input(f'Novo voo ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        cursor.execute('UPDATE voo SET nome_voo = ? WHERE id_local = ?', (novo_voo, id_voo))
+
+        conec.commit()
+        
+        input('Dados do voo alterados com sucesso')
         
     conec.close()
     
@@ -109,7 +142,7 @@ def atualizar_empresa_aerea():
     
         conec.commit() # Salva as transações no banco de dados
         
-        input('Dados do destino alterados com sucesso')
+        input('Dados da empresa aérea alterados com sucesso')
         
     conec.close() # Fecha o banco de dados
         
@@ -208,7 +241,7 @@ def atualizar_dados_escala():
     else:
         print(f'\nQuantidade de escalas: {resultado[1]}')
         
-        nova_escala = input(f'QUantidade de escalas ou Enter para manter "{resultado[1]}": ') or resultado[1]
+        nova_escala = input(f'Nova quantidade de escalas ou Enter para manter "{resultado[1]}": ') or resultado[1]
         cursor.execute('UPDATE escala SET quantidade_escala = ? WHERE id_escala = ?', (nova_escala, id_escala))
         
         conec.commit()
