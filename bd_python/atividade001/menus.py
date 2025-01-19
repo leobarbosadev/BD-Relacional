@@ -15,7 +15,7 @@ def menu_principal():
                      + f'2 - Alterar\n'
                      + f'3 - Exibir\n'
                      + f'4 - Apagar\n'
-                     + f'5 - Sair\n\n').strip()
+                     + f'5 - Sairr\n\n').strip()
         if menu == '5':
             input('Obrigado por utilizar nosso sistema!')
             break
