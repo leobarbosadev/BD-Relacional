@@ -18,7 +18,7 @@ def inserir_dados_cliente():
 
     os.system('cls')
     print('Inserindo dados de clientes...')
-    nome = input('Digite um nome: ')
+    nome = input('Digite um nome: ').title()
     idade = int(input('Digite a idade: '))
 
     cursor.execute(
@@ -45,7 +45,8 @@ def inserir_dados_local():
     cursor = conec.cursor()
     
     os.system('cls')
-    nome_local = input('Digite o local: ')
+    print('Inserindo dados de locais...')
+    nome_local = input('Digite o local: ').title()
 
     cursor.execute(
         'INSERT INTO local (nome_local) VALUES (?)', (nome_local,))
@@ -71,6 +72,7 @@ def inserir_dados_voo():
     cursor = conec.cursor()
     
     os.system('cls')
+    print('Inserindo dados de voos...')
     id_origem = input('Digite o id do local de origem: ')
     id_destino = input('Digite o id do local de destino: ')
     data_ida = input('Digite a data de ida (YYYY-MM-DD): ')
@@ -100,7 +102,8 @@ def inserir_dados_empresa_aerea():
     cursor = conec.cursor()
 
     os.system('cls')
-    nome_empresa = input('Digite o nome da empresa aérea: ')
+    print('Inserindo dados de empresa aérea...')
+    nome_empresa = input('Digite o nome da empresa aérea: ').title()
 
     cursor.execute(
         'INSERT INTO empresa_aerea (nome_empresa_aerea) VALUES (?)', (nome_empresa,))
@@ -126,6 +129,7 @@ def inserir_dados_portao_embarque():
     cursor = conec.cursor()
 
     os.system('cls')
+    print('Inserindo dados de portão de embarque...')
     nome_portao_embarque = input('Digite o portão de embarque: ').upper()
 
     cursor.execute(
@@ -152,7 +156,8 @@ def inserir_dados_tipo_viagem():
     cursor = conec.cursor()
 
     os.system('cls')
-    tipo_viagem = input('Digite o tipo de viagem: ')
+    print('Inserindo dados de tipos de viagem...')
+    tipo_viagem = input('Digite o tipo de viagem: ').title()
 
     cursor.execute(
         'INSERT INTO tipo_viagem (tipo_viagem) VALUES (?)', (tipo_viagem,))
@@ -177,7 +182,8 @@ def inserir_dados_escala():
     cursor = conec.cursor()
 
     os.system('cls')
-    qtd_escala = input('Digite a quantidade de escalas ou se o voo é direto: ')
+    print('Inserindo dados de escalas...')
+    qtd_escala = input('Digite a quantidade de escalas ou se o voo é direto: ').title()
 
     cursor.execute(
         'INSERT INTO escala (quantidade_escala) VALUES (?)', (qtd_escala,))
@@ -200,7 +206,9 @@ def inserir_dados_passagem():
     conec = sqlite3.connect(db_path)
 
     cursor = conec.cursor()
+    
     os.system('cls')
+    print('Inserindo dados de passagens...')
     id_cliente = input('Digite o id do cliente: ')
     id_origem = input('Digite o id de origem: ')
     id_destino = input('Digite o id de destino: ')
@@ -217,6 +225,6 @@ def inserir_dados_passagem():
 
     conec.commit()
     
-    input('Dados de passgem inseridos com sucesso')
+    input('Dados de passagem inseridos com sucesso')
 
     conec.close()
