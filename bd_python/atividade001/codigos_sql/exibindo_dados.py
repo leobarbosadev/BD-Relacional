@@ -34,7 +34,6 @@ def exibir_dados_cliente():
     print(tabela)
     conec.close()
 
-
 def exibir_dados_local():
 
     # Obter o caminho absoluto da pasta onde está o script sendo executado
@@ -65,7 +64,6 @@ def exibir_dados_local():
 
     print(tabela)
     conec.close()
-
 
 def exibir_dados_voo():
 
@@ -98,7 +96,6 @@ def exibir_dados_voo():
     print(tabela)
     conec.close()
 
-
 def exibir_dados_empresa_aerea():
 
     # Obter o caminho absoluto da pasta onde está o script sendo executado
@@ -129,7 +126,6 @@ def exibir_dados_empresa_aerea():
 
     print(tabela)
     conec.close()
-
 
 def exibir_dados_portao_embarque():
 
@@ -162,7 +158,6 @@ def exibir_dados_portao_embarque():
     print(tabela)
     conec.close()
 
-
 def exibir_dados_tipo_viagem():
 
     # Obter o caminho absoluto da pasta onde está o script sendo executado
@@ -193,7 +188,6 @@ def exibir_dados_tipo_viagem():
 
     print(tabela)
     conec.close()
-
 
 def exibir_dados_escala():
 
@@ -226,7 +220,6 @@ def exibir_dados_escala():
     print(tabela)
     conec.close()
 
-
 def exibir_dados_passagem():
 
     # Obter o caminho absoluto da pasta onde está o script sendo executado
@@ -251,19 +244,70 @@ def exibir_dados_passagem():
         JOIN portao_embarque ON passagem.id_portao_embarque = portao_embarque.id_prtao_embarque
         JOIN local AS origem ON passagem.id_origem = origem.id_local
         JOIN local AS destino ON passagem.id_destino = destino.id_local;''')
-    
-    resultados = cursor.fetchall() # fetchall pega todos os dados da tabela
-    
+
+    resultados = cursor.fetchall()  # fetchall pega todos os dados da tabela
+
     os.system('cls')
-    
+
     tabela = PrettyTable()
-    
+
     colunas = [descricao[0]for descricao in cursor.description]
-    
+
     tabela.field_names = colunas
-    
+
     for row in resultados:
         tabela.add_row(row)
-        
+
     print(tabela)
     conec.close()
+
+# Funções exclusivas para a insersão de dados na tabela passagem
+
+def exibir_dados_cliente_passagem():
+
+    exibir_dados_cliente()
+    id_cliente = input('Digite o id do cliente: ')
+    os.system('cls')
+
+    return (id_cliente)
+
+def exbir_dados_local_passgem():
+
+    exibir_dados_local()
+    id_origem = input('Digite o id de origem: ')
+    id_destino = input('Digite o id de destino: ')
+    os.system('cls')
+
+    return (id_origem, id_destino)
+
+def exibir_dados_empresa_aerea_passagem():
+
+    exibir_dados_empresa_aerea()
+    id_empresa_aerea = input('Digite o id da empresa aerea: ')
+    os.system('cls')
+
+    return (id_empresa_aerea)
+
+def exibir_dados_portao_embarque_passagem():
+
+    exibir_dados_portao_embarque()
+    id_portao_embarque = input('Digite o id do portão de embarque: ')
+    os.system('cls')
+
+    return (id_portao_embarque)
+
+def exibir_dados_tipo_viagem_passagem():
+
+    exibir_dados_tipo_viagem()
+    id_tipo_viagem = input('Digite o id do tipo de viagem: ')
+    os.system('cls')
+
+    return (id_tipo_viagem)
+
+def exibir_dados_escala_passagem():
+    
+    exibir_dados_escala()
+    id_escala = input('Digite o id da escala: ')
+    os.system('cls')
+    
+    return(id_escala)

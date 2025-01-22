@@ -50,6 +50,7 @@ def submenu_inserir():
                         + f'8 - Passagens\n'
                         + f'9 - Voltar\n\n').strip()
         if submenu == '9':
+            os.system('cls')
             break
         elif submenu == '1':
             while True:
@@ -122,11 +123,10 @@ def submenu_inserir():
                 opcao = input('Deseja adicionar mais passagens? (S-Sim)').lower()
                 if opcao != 's':
                     os.system('cls')
-                    break
+                    break    
         else:
-            input('Opção invalida')
+            input('Opção invávida precione Enter para voltar para o menu')
             os.system('cls')
-            submenu_inserir()
             
 def submenu_alterar():
     while True:
@@ -195,6 +195,9 @@ def submenu_alterar():
                 if opcao != 's':
                     os.system('cls')
                     break
+        else:
+            input('Opção invávida precione Enter para voltar para o menu')
+            os.system('cls')
 
 def submenu_exibir():
     while True:
@@ -249,6 +252,9 @@ def submenu_exibir():
             exibir.exibir_dados_passagem()
             print()
             input('Precione Enter para voltar')
+            os.system('cls')
+        else:
+            input('Opção invávida precione Enter para voltar para o menu')
             os.system('cls')
         
 def submenu_excluir():
@@ -337,3 +343,6 @@ def submenu_excluir():
                 if opcao != 's':
                     os.system('cls')
                     break
+        else:
+            input('Opção invávida precione Enter para voltar para o menu')
+            os.system('cls')

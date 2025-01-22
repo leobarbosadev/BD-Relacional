@@ -1,6 +1,6 @@
 import os
 import sqlite3
-
+import codigos_sql.exibindo_dados as exibir
 
 def inserir_dados_cliente():
     
@@ -26,7 +26,7 @@ def inserir_dados_cliente():
 
     conec.commit()
     
-    input('Dados do cliente inseridos com sucesso')
+    input('===Dados do cliente inseridos com sucesso===')
 
     conec.close()
 
@@ -53,7 +53,7 @@ def inserir_dados_local():
 
     conec.commit()
     
-    input('Dados do local inseridos com sucesso')
+    input('===Dados do local inseridos com sucesso===')
 
     conec.close()
     
@@ -83,7 +83,7 @@ def inserir_dados_voo():
 
     conec.commit()
     
-    input('Dados do voo inseridos com sucesso')
+    input('===Dados do voo inseridos com sucesso===')
 
     conec.close()
 
@@ -110,7 +110,7 @@ def inserir_dados_empresa_aerea():
 
     conec.commit()
 
-    input('Dados da empresa aérea inseridos com sucesso')
+    input('===Dados da empresa aérea inseridos com sucesso===')
     
     conec.close()
 
@@ -137,7 +137,7 @@ def inserir_dados_portao_embarque():
 
     conec.commit()
     
-    input('Dados do portão de embarque inseridos com sucesso')
+    input('===Dados do portão de embarque inseridos com sucesso===')
 
     conec.close()
 
@@ -164,7 +164,7 @@ def inserir_dados_tipo_viagem():
 
     conec.commit()
     
-    input('Dados do tipo de viagem inseridos com sucesso')
+    input('===Dados do tipo de viagem inseridos com sucesso===')
 
     conec.close()
 
@@ -190,7 +190,7 @@ def inserir_dados_escala():
 
     conec.commit()
     
-    input('Dados de escala inseridos com sucesso')
+    input('===Dados de escala inseridos com sucesso===')
 
     conec.close()
 
@@ -206,25 +206,26 @@ def inserir_dados_passagem():
     conec = sqlite3.connect(db_path)
 
     cursor = conec.cursor()
-    
+
     os.system('cls')
     print('Inserindo dados de passagens...')
-    id_cliente = input('Digite o id do cliente: ')
-    id_origem = input('Digite o id de origem: ')
-    id_destino = input('Digite o id de destino: ')
+    
+    id_cliente = exibir.exibir_dados_cliente_passagem()
+    id_origem, id_destino = exibir.exbir_dados_local_passgem()      
     data_ida = input('Digite a data da ida: ')
     data_volta = input('Digite a data da volta: ')
     id_voo = input('Digite o id do voo: ')
-    id_empresa_aerea = input('Digite o id da empresa aerea: ')
-    id_portao_embarque = input('Digite o id do portão de embarque: ')
-    id_tipo_viagem = input('Digite o id do tipo de viagem: ')
-    id_escala = input('Digite o id da escala: ')
+    id_empresa_aerea = exibir.exibir_dados_empresa_aerea_passagem()
+    id_portao_embarque = exibir.exibir_dados_portao_embarque_passagem()
+    id_tipo_viagem = exibir.exibir_dados_tipo_viagem_passagem()
+    id_escala = exibir.exibir_dados_escala_passagem()
 
-    cursor.execute('INSERT INTO passagem (id_cliente, id_origem, id_destino, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    cursor.execute('''INSERT INTO passagem (id_cliente, id_origem, id_destino, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                    (id_cliente, id_origem, id_destino, data_ida, data_volta, id_voo, id_empresa_aerea, id_portao_embarque, id_tipo_viagem, id_escala))
 
     conec.commit()
     
-    input('Dados de passagem inseridos com sucesso')
+    input('===Dados de passagem inseridos com sucesso===')
 
     conec.close()
