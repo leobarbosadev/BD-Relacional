@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import time
 
 
 def criar_banco():
@@ -112,3 +113,5 @@ def criar_banco():
         )
     '''
     )
+print('Programa iniciando, aguarde...')
+time.sleep(3)
